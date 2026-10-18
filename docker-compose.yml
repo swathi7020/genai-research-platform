@@ -1,0 +1,19 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: genai-postgres
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: genai_password
+      POSTGRES_DB: genai_research
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
